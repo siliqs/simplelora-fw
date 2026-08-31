@@ -1,0 +1,3 @@
+[submodule "lib/siliqs_esp32"]
+	path = lib/siliqs_esp32
+	url = git@github.com:livinghuang/siliqs_esp32.git

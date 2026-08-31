@@ -1,0 +1,11 @@
+# PlatformIO build artifacts
+.pio/
+build/
+.build/
+
+# macOS
+.DS_Store
+
+# Agent working notes — not for version control
+CLAUDE.md
+log.md
