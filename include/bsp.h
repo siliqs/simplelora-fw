@@ -1,6 +1,7 @@
 #pragma once
 
 #define USE_LORA
+#define USE_LED
 
 // SQC485I v2 board profile — SX1262 pins only. This project only exercises the raw radio, so
 // the board's RS485/BLE peripherals (used by its other, LoRaWAN-based firmware) aren't touched
@@ -13,6 +14,16 @@
 #define LORA_MOSI 7
 #define LORA_NSS 8
 #define LORA_SCK 10
+
+// Status LED (schematic LED net, GPIO2). Shared with the RS485 /RE line on this board's
+// LoRaWAN firmware (sqc485i-lorawan-fw's bsp_v2.h), but this project never touches RS485,
+// so it's free to use here. Active-low.
+#define SIMPLELORA_LED_PIN 2
+
+// USER_KEY button (schematic net GPIO9_USER_KEY). Shared with the RS485 DE line on this
+// board's LoRaWAN firmware, but free to use here for the same reason as the LED above.
+// External pull-up, reads LOW when pressed. Only wired up on the initiator build (node1).
+#define SIMPLELORA_BUTTON_PIN 9
 
 // A typical AS923-1 channel plan (923.2 / 923.4 / ... / 924.6 MHz, multi-SF SF7-SF12 on each)
 // puts 923.2 MHz as its lowest channel. 923.2 MHz / SF7 keeps airtime short for a ping-pong test.
